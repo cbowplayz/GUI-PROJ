@@ -1,28 +1,31 @@
-/*
-    Author: Prof. Autorino
-
-    Footer.java
-
-    Simple Swing based component to hold two buttons in a FlowLayout
-*/
-
 import java.awt.FlowLayout;
-import javax.swing.JPanel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Footer {
-    private JPanel footerPanel = null;
-    private JButton  clearBtn = null;
-    private JButton exitBtn = null;
+    private JPanel footerPanel;
+    private JLabel logoLabel;
+    private JButton clearBtn;
+    private JButton submitBtn;
+    private JButton exitBtn;
 
     public Footer() {
-        footerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        footerPanel = new JPanel(
+            new FlowLayout(FlowLayout.CENTER, 10, 10)
+        );
+
+        logoLabel = new JLabel();
+        logoLabel.setIcon(new ImageIcon("f1.png"));
 
         clearBtn = new JButton("Clear Text Area");
+        submitBtn = new JButton("Submit");
         exitBtn = new JButton("Exit");
-        
+
+        footerPanel.add(logoLabel);
         footerPanel.add(clearBtn);
+        footerPanel.add(submitBtn);
         footerPanel.add(exitBtn);
     }
 
@@ -32,6 +35,10 @@ public class Footer {
 
     public JButton getClearButton() {
         return clearBtn;
+    }
+
+    public JButton getSubmitButton() {
+        return submitBtn;
     }
 
     public JButton getExitButton() {
