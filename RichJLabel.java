@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JLabel;
 
+// Authors: Mohammad Abdullah, Avnge George Lumilan, Christian Vera
+
 
 public class RichJLabel extends JLabel {
 

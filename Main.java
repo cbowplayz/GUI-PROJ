@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+// Authors: Mohammad Abdullah, Avnge George Lumilan, Christian Vera
+
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Main::createAndShowGUI);
@@ -9,9 +11,9 @@ public class Main {
 
     public static void createAndShowGUI() {
         // Main Window
-        JFrame frame = new JFrame("Text Components");
+        JFrame frame = new JFrame("F1 Race Outcome");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 350);
+        frame.setSize(750, 750);
         frame.setLocationRelativeTo(null);
         frame.setLayout(new BorderLayout(10, 10));
 
@@ -42,6 +44,14 @@ public class Main {
         footer.getExitButton().addActionListener(e ->
             System.exit(0)
         );
+
+        footer.getSubmitButton().addActionListener (e -> {
+            System.out.println(center.getFirstPlace().getText());
+            System.out.println(center.getSecondPlace().getText());
+            System.out.println(center.getThirdPlace().getText());
+            System.out.println(center.getTextArea().getText());
+
+        });
         
         frame.setVisible(true);
     }

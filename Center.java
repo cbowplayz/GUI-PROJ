@@ -1,23 +1,29 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+
+// Author: Christian Vera
 
 public class Center {
 
     private JPanel centerPanel = null;
     private JTextArea textArea = null;
     private RichJLabel displayLabel = null;
+    private JTextArea firstPlace = null;
+    private JTextArea secondPlace = null;
+    private JTextArea thirdPlace = null;
+
 
     public Center() {
 
-        centerPanel = new JPanel(new BorderLayout(10, 10));
+        centerPanel = new JPanel(new BorderLayout(50, 50));
 
         // F1 TITLE
 
@@ -26,7 +32,7 @@ public class Center {
             displayLabel.getFont().deriveFont(Font.BOLD, 24f)
         );
 
-        displayLabel.setForeground(Color.BLACK);
+        displayLabel.setForeground(Color.RED);
 
         displayLabel.setLeftShadow(2, 2, Color.GRAY);
         displayLabel.setRightShadow(1, 1, Color.LIGHT_GRAY);
@@ -35,62 +41,43 @@ public class Center {
 
         // podium
 
-        JPanel podiumPanel = new JPanel(new GridBagLayout());
+        JPanel podiumPanel = new JPanel(new BorderLayout(10,10));
+        podiumPanel.setPreferredSize(new Dimension(180,180));
 
 
        // 1st Place
-        JTextArea firstPlace = createDriverBox(
-            "1ST PLACE\n\nDriver 1"
+        firstPlace = createDriverBox(
+            "1ST PLACE\n\nDriver 1\n\n"
         );
 
-        GridBagConstraints firstGbc = new GridBagConstraints();
+        JPanel firstPlacePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        firstPlace.setPreferredSize(new Dimension(180, 180));
+        firstPlacePanel.add(firstPlace);
 
-        firstGbc.gridx = 1;
-        firstGbc.gridy = 1;
-        firstGbc.gridheight = 2;
-        firstGbc.weightx = 1.0;
-        firstGbc.weighty = 1.0;
-        firstGbc.fill = GridBagConstraints.BOTH;
-        firstGbc.insets = new Insets(5, 5, 5,5);
-
-        podiumPanel.add(firstPlace,firstGbc);
+        podiumPanel.add(firstPlacePanel, BorderLayout.CENTER);
 
 
         // 2nd Place
-        JTextArea secondPlace = createDriverBox(
-            "2ND PLACE\n\nDriver 2"
+        JPanel lowerPodium = new JPanel(new BorderLayout(10,10));
+
+        secondPlace = createDriverBox(
+            "2ND PLACE\n\nDriver 2\n\n"
         );
-
-        GridBagConstraints secondGbc = new GridBagConstraints();
-
-        secondGbc.gridx = 0;
-        secondGbc.gridy = 1;
-        secondGbc.weightx = 1.0;
-        secondGbc.weighty = 0.5;
-        secondGbc.fill = GridBagConstraints.BOTH;
-        secondGbc.insets = new Insets(5, 5, 5, 5);
-        podiumPanel.add(secondPlace,secondGbc);
+        
+        lowerPodium.add(secondPlace, BorderLayout.WEST);
 
         // 3rd Place
-        JTextArea thirdPlace = createDriverBox(
-            "3RD PLACE\n\nDriver 3"
+        thirdPlace = createDriverBox(
+            "3RD PLACE\n\nDriver 3\n\n"
         );
 
-        GridBagConstraints thirdGbc = new GridBagConstraints();
+        lowerPodium.add(thirdPlace, BorderLayout.EAST);
 
-        thirdGbc.gridx = 2;
-        thirdGbc.gridy = 1;
-        thirdGbc.weightx = 1.0;
-        thirdGbc.weighty = 0.5;
-        thirdGbc.fill = GridBagConstraints.BOTH;
-        thirdGbc.insets = new Insets(5, 5, 5, 5);
-        podiumPanel.add(thirdPlace,thirdGbc);
-
+        podiumPanel.add(lowerPodium, BorderLayout.SOUTH);
 
         // rest of grid
 
         textArea = new JTextArea(
-            "REST OF THE FIELD\n\n" +
             "4. Driver 4\n" +
             "5. Driver 5\n" +
             "6. Driver 6\n" +
@@ -118,13 +105,14 @@ public class Center {
 
         racePanel.add(podiumPanel, BorderLayout.NORTH);
 
+
         JScrollPane scrollPane = new JScrollPane(textArea);
         racePanel.add(scrollPane, BorderLayout.CENTER);
 
         centerPanel.add(racePanel, BorderLayout.CENTER);
     }
 
-    // podium
+
 
     private JTextArea createDriverBox(String text) {
 
@@ -158,4 +146,19 @@ public class Center {
     public JTextArea getTextArea() {
         return textArea;
     }
+
+    public JTextArea getFirstPlace () {
+        return firstPlace;
+
+    }
+
+    public JTextArea getSecondPlace (){
+        return secondPlace;
+    }
+
+    public JTextArea getThirdPlace (){
+        return thirdPlace;
+    }
+
+
 }

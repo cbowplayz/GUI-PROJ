@@ -1,11 +1,12 @@
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+// Author: Avnge George Lumilan
 
 public class Header {
     

@@ -4,15 +4,17 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+// Author: Mohammad Abdullah
+
 // Adds a footer containing a logo and three buttons
 public class Footer {
 
     // Footer components
-    private JPanel footerPanel;
-    private JLabel logoLabel;
-    private JButton clearBtn;
-    private JButton submitBtn;
-    private JButton exitBtn;
+    private JPanel footerPanel = null;
+    private JLabel logoLabel = null;
+    private JButton clearBtn = null;
+    private JButton submitBtn = null;
+    private JButton exitBtn = null;
 
     // Initializes footer omponents
     public Footer() {
@@ -21,7 +23,7 @@ public class Footer {
         );
 
         logoLabel = new JLabel();
-        logoLabel.setIcon(new ImageIcon("f1.png"));
+        logoLabel.setIcon(new ImageIcon("images/f1.png"));
 
         clearBtn = new JButton("Clear Text Area");
         submitBtn = new JButton("Submit");
@@ -29,8 +31,8 @@ public class Footer {
 
         // Adds logo and buttons to footer panel
         footerPanel.add(logoLabel);
-        footerPanel.add(clearBtn);
         footerPanel.add(submitBtn);
+        footerPanel.add(clearBtn);
         footerPanel.add(exitBtn);
     }
 
@@ -49,4 +51,5 @@ public class Footer {
     public JButton getExitButton() {
         return exitBtn;
     }
+
 }
